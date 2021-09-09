@@ -8,13 +8,14 @@ workflows:
       - build_test
 jobs:
   build_test:
+    working_directory: ~/
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.9.7
     steps:
       - checkout
       - run:
           name: Install Python Dependencies
           command: |
             echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
-            pip install --user -r ./pip-sample/requirements.txt
+            pip install --user -r requirements.txt
       - snyk/scan
