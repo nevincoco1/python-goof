@@ -16,5 +16,5 @@ jobs:
           name: Install Python Dependencies
           command: |
             echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
-            pip install --user -r requirements.txt
+            pip install --user -r ./pip-sample/requirements.txt
       - snyk/scan
